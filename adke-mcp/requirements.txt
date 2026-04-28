@@ -1,0 +1,9 @@
+fastmcp
+pinecone
+fastapi
+uvicorn
+langchain
+langchain-groq
+langchain-mcp-adapters
+langchain_classic
+supabase
