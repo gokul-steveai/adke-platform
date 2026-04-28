@@ -7,11 +7,13 @@ import asyncio
 # Configure logging to track connection issues
 logger = logging.getLogger(__name__)
 
+
 class SupabaseService:
     """
     A Singleton service manager for the Supabase AsyncClient.
     Follows the 'Resource Acquisition Is Initialization' (RAII) pattern.
     """
+
     _instance: Optional[AsyncClient] = None
 
     @classmethod
@@ -23,8 +25,7 @@ class SupabaseService:
         if cls._instance is None:
             try:
                 cls._instance = await create_async_client(
-                    settings.supabase_url, 
-                    settings.supabase_key
+                    settings.supabase_url, settings.supabase_key
                 )
                 logger.info("Supabase AsyncClient initialized successfully.")
             except Exception as e:
@@ -36,7 +37,7 @@ class SupabaseService:
     async def close(cls):
         """Cleanly closes the client session."""
         if cls._instance:
-            # Note: Depending on the supabase-py version, 
+            # Note: Depending on the supabase-py version,
             # you might need to close the underlying httpx client
             cls._instance = None
             logger.info("Supabase connection cleared.")
