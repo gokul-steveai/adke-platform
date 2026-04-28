@@ -1,0 +1,52 @@
+# --- Python / adke-mcp ---
+adke-mcp/__pycache__/
+adke-mcp/*.py[cod]
+adke-mcp/*$py.class
+adke-mcp/.env
+adke-mcp/.venv/
+adke-mcp/venv/
+**/.venv
+**/__pycache__/
+adke-mcp/.pytest_cache/
+
+# --- Node / Frontend ---
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# --- System & Logs ---
+.DS_Store
+*.log
+logs/
+.vscode/
+.idea/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+**/.vscode`
