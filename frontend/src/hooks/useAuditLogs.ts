@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient"; // Your existing client
+import type { IncidentLog } from "../types/supabase";
 
 export const useAuditLogs = () => {
-  const [logs, setLogs] = useState([]);
+  const [logs, setLogs] = useState<IncidentLog[]>([]);
 
   useEffect(() => {
     // 1. Fetch initial logs
     const fetchLogs = async () => {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from("incident_logs")
         .select("*")
         .order("timestamp", { ascending: false })
         .limit(20);
-      setLogs(data || []);
+
+      if (!error) {
+        setLogs(data);
+      }
     };
 
     fetchLogs();
@@ -20,11 +24,10 @@ export const useAuditLogs = () => {
     // 2. Subscribe to real-time changes
     const channel = supabase
       .channel("schema-db-changes")
-      .on(
+      .on<IncidentLog>( // Fix: Type the incoming real-time changes
         "postgres_changes",
         { event: "*", schema: "public", table: "incident_logs" },
         (payload) => {
-          // If it's a new log, add it to the top. If update, swap the old one.
           if (payload.eventType === "INSERT") {
             setLogs((prev) => [payload.new, ...prev]);
           } else if (payload.eventType === "UPDATE") {
@@ -42,6 +45,5 @@ export const useAuditLogs = () => {
       supabase.removeChannel(channel);
     };
   }, []);
-
   return { logs };
 };

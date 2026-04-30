@@ -1,11 +1,8 @@
-import './App.css'
-import DevOpsDashboard from './components/Dashboard'
+import "./App.css";
+import DevOpsDashboard from "./components/Dashboard";
 
 function App() {
-
-  return (
-    <DevOpsDashboard />
-  )
+  return <DevOpsDashboard />;
 }
 
-export default App
+export default App;

@@ -1,11 +1,4 @@
-import {
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { PieChart, Pie, ResponsiveContainer, Tooltip, Legend } from "recharts";
 import { Cpu, Shapes } from "lucide-react";
 
 export default function MemoryVisualizer({

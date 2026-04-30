@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Activity, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import ChatInterface from "./ChatInterface";
 // import MemoryVisualizer from "./MemoryVisualizer";
 import AuditLog from "./AuditLog";
 
 export default function DevOpsDashboard() {
-  const [lastMetrics, setLastMetrics] = useState({ used: 3421, total: 7864 });
+  const [_lastMetrics, setLastMetrics] = useState({ used: 3421, total: 7864 });
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100 p-8">

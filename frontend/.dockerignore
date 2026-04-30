@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+
+# Python Bloat
+.venv/
+venv/
+ENV/
+pyvenv.cfg
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node.js / Frontend Bloat
+**/node_modules/
+**/dist/
+**/build/
+.npm
+.pnpm-store
+.eslintcache
+
+# Editor & IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker / Logs
+docker-compose.override.yml
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment Secrets
+# (Careful: Only ignore if you are mounting them via Compose)
+.env
+frontend/.env

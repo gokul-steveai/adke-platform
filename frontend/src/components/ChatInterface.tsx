@@ -141,14 +141,18 @@ export default function ChatInterface({ onMetricsUpdate }: ChatInterfaceProps) {
             </p>
             <div className="flex gap-3">
               <button
-                onClick={() => handleUserAction(message.action_id, "approve")}
+                onClick={() =>
+                  handleUserAction(message.action_id ?? "", "approve")
+                }
                 className="bg-green-600 hover:bg-green-500 px-4 py-2 rounded text-sm font-bold"
               >
                 Approve & Execute
               </button>
               <button
                 className="text-slate-400 hover:text-white text-sm"
-                onClick={() => handleUserAction(message.action_id, "cancel")}
+                onClick={() =>
+                  handleUserAction(message.action_id ?? "", "cancel")
+                }
               >
                 Cancel
               </button>
