@@ -36,4 +36,3 @@ yarn-error.log*
 # Environment Secrets
 # (Careful: Only ignore if you are mounting them via Compose)
 .env
-frontend/.env

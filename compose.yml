@@ -1,0 +1,23 @@
+services:
+  adke-mcp:
+    build:
+      context: ./adke-mcp
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file: 
+    - ./adke-mcp/.env
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+      - VITE_SUPABASE_PUBLISHABLE_KEY=${VITE_SUPABASE_PUBLISHABLE_KEY}
+    ports:
+      - "5173:80"
+    env_file: 
+    - ./frontend/.env
+    depends_on:
+      - adke-mcp

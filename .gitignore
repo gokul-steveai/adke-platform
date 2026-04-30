@@ -50,3 +50,6 @@ dist-ssr
 *.sln
 *.sw?
 **/.vscode`
+
+# Env files
+.env
